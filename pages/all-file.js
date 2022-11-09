@@ -26,7 +26,7 @@ function AllFile() {
         <div className='text-center py-3'>
           {
             allfiles.length === 0 ? ( <div className='text-center'><h4>No files are saved!</h4></div>) 
-            : ( <>{allfiles.map(file => {return <div className='text-center'><h4>{file}</h4></div>})}</> )
+            : ( <>{allfiles.map(file => {return <div className='text-center'><a href={"/files/"+file} target="_blank">{file}</a></div>})}</> )
           }
 
         </div>  
