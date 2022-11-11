@@ -56,7 +56,12 @@ export default function NewFile() {
               <Form onSubmit={ handleSubmit }>
                 <Form.Group controlId="files" className="mb-3">
                   <Form.Label>Files upload: </Form.Label>
-                  <Form.Control type="file" multiple onChange={ onSelectFiles } />
+                  <Form.Control 
+                    className={ styles.dragBox }
+                    type="file" 
+                    multiple 
+                    onChange={ onSelectFiles } 
+                  />
                 </Form.Group>
                 <Button type="submit" variant='primary'>Save All Files</Button>
               </Form>

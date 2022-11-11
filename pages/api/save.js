@@ -9,7 +9,6 @@ export const config = {
 };
 
 export default (req, res) => {
-
   if (req.method === "POST") {
 		return new Promise((resolve, reject) => {
 			const form = new formidable.IncomingForm({ 

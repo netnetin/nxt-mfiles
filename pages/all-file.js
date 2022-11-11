@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'
 
-import { Container, Button } from 'react-bootstrap'
+import { Container, Row, Col, Card, Button } from 'react-bootstrap'
 
 function AllFile() {
   const router = useRouter();
@@ -25,8 +25,32 @@ function AllFile() {
         <h4 className='text-center'>All Files</h4>
         <div className='text-center py-3'>
           {
-            allfiles.length === 0 ? ( <div className='text-center'><h4>No files are saved!</h4></div>) 
-            : ( <>{allfiles.map(file => {return <div className='text-center'><a href={"/files/"+file} target="_blank">{file}</a></div>})}</> )
+            allfiles.length === 0 ? 
+            ( 
+              <div className='text-center'>
+                <h4>No files are saved!</h4>
+              </div>
+            ) 
+            : 
+            ( 
+              <div>
+                <Row className='justify-content-center py-3'>
+                  { allfiles.map((f, i) => (
+                  
+                    <Col key={i} sm={10} md={6} lg={4}>
+                      <Card className="bg-dark text-white">
+                        <Card.Body>
+                          <Card.Title>{ f }</Card.Title>
+                          <a href={ "/files/"+f } rel="noopener noreferrer" target="_blank">
+                            see new tab
+                          </a>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  ))}
+                </Row>  
+              </div> 
+            )
           }
 
         </div>  
